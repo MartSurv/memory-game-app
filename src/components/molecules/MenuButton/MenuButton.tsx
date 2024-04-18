@@ -1,8 +1,8 @@
 import classNames from "classnames";
 
 import styles from "./MenuButton.module.scss";
-import { MenuButtonSize } from "../../../../types/components";
-import { Button } from "../../../atoms/Button";
+import { MenuButtonSize } from "../../../types/components";
+import { Button } from "../../atoms/Button";
 
 type MenuButton = {
   active?: boolean;

@@ -1,4 +1,4 @@
-import { MenuButton } from "./MenuButton";
+import { MenuButton } from "../MenuButton";
 import styles from "./OptionsCard.module.scss";
 import { MenuButtonSize } from "../../../types/components";
 import { Label } from "../../atoms/Label";
