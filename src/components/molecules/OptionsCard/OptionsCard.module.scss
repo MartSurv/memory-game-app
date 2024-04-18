@@ -1,0 +1,21 @@
+@import "../../../assets/styles/variables.scss";
+
+.card {
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  background-color: $color-octonary;
+  padding: 56px;
+}
+
+.cardRow {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cardRowOptions {
+  display: flex;
+  gap: 30px;
+}

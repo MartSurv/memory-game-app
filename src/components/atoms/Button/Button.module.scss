@@ -1,0 +1,31 @@
+@import "../../../assets//styles/variables.scss";
+
+.button {
+  $this: &;
+
+  border: none;
+  border-radius: 35px;
+  flex-grow: 1;
+  padding: 15px 30px;
+  font-weight: $font-weight-bold;
+  transition: color 0.2s ease-out, background-color 0.2s ease-out;
+
+  &Primary {
+    background-color: $color-primary;
+    color: $color-octonary;
+
+    &:hover {
+      background-color: rgba($color: $color-primary, $alpha: 0.8);
+    }
+  }
+
+  &Secondary {
+    background-color: $color-secondary;
+    color: $color-tertiary;
+
+    &:hover {
+      background-color: $color-septenary;
+      color: $color-octonary;
+    }
+  }
+}
