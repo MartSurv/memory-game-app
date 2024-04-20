@@ -4,6 +4,6 @@ export enum Theme {
 }
 
 export enum GridSize {
-  "4x4",
-  "6x6",
+  "4x4" = 4,
+  "6x6" = 6,
 }

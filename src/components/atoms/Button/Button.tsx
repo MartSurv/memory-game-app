@@ -21,9 +21,9 @@ export const Button: React.FC<ButtonProps> = ({
   const buttonClassnames = classNames(
     {
       [styles.button]: true,
+      [styles.buttonDisabled]: disabled,
       [styles.buttonPrimary]: type === ButtonType.Primary,
       [styles.buttonSecondary]: type === ButtonType.Secondary,
-      [styles.buttonDisabled]: disabled,
     },
     className
   );

@@ -1,0 +1,22 @@
+@import "../../../assets/styles/variables";
+
+.tab {
+  align-items: center;
+  background-color: $color-secondary;
+  border-radius: 10px;
+  display: flex;
+  font-weight: $font-weight-bold;
+  justify-content: space-between;
+  padding: 15px 20px;
+  width: 255px;
+}
+
+.text {
+  color: $color-senary;
+  font-size: $font-size-body;
+}
+
+.number {
+  color: $color-tertiary;
+  font-size: $font-size-subtitle;
+}

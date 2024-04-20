@@ -1,0 +1,28 @@
+@import "../../../assets/styles/variables";
+
+.gameButton {
+  $this: &;
+
+  border-radius: 100%;
+  font-size: $font-size-game-number-4x4;
+  height: 118px;
+  padding: 0;
+  user-select: none;
+  width: 118px;
+
+  &Hidden {
+    background-color: $color-tertiary;
+    color: $color-tertiary;
+  }
+
+  &Completed {
+    background-color: $color-secondary;
+    color: $color-octonary;
+    pointer-events: none;
+  }
+
+  &Selected {
+    background-color: $color-primary;
+    color: $color-octonary;
+  }
+}

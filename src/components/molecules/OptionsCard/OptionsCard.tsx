@@ -5,16 +5,18 @@ import { Label } from "../../atoms/Label";
 import { MenuButton } from "../MenuButton";
 
 type OptionsCardProps = {
-  theme: Theme;
   gridSize: GridSize;
-  onThemeSelect: (theme: Theme) => void;
+  theme: Theme;
   onGridSizeSelect: (gridSize: GridSize) => void;
+  onStartGame: () => void;
+  onThemeSelect: (theme: Theme) => void;
 };
 
 export const OptionsCard: React.FC<OptionsCardProps> = ({
   gridSize,
   theme,
   onGridSizeSelect,
+  onStartGame,
   onThemeSelect,
 }) => {
   return (
@@ -62,7 +64,9 @@ export const OptionsCard: React.FC<OptionsCardProps> = ({
           </MenuButton>
         </section>
       </div>
-      <MenuButton size={MenuButtonSize.Big}>Start Game</MenuButton>
+      <MenuButton size={MenuButtonSize.Big} onClick={onStartGame}>
+        Start Game
+      </MenuButton>
     </article>
   );
 };
