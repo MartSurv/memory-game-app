@@ -1,4 +1,5 @@
-import { useMemo, useRef, useState } from "react";
+import classNames from "classnames";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
 import styles from "./Game.module.scss";
@@ -6,8 +7,10 @@ import { Button } from "../../components/atoms/Button";
 import { Tab } from "../../components/atoms/Tab";
 import { Title } from "../../components/atoms/Title";
 import { GameButton } from "../../components/molecules/GameButton";
+import { Path } from "../../router";
 import { GameLayout } from "../../templates/GameLayout";
 import { ButtonType, TitleStyle } from "../../types/components";
+import { GridSize } from "../../types/settings";
 import { generateGame } from "../../utils/game";
 
 export const Game: React.FC = () => {
@@ -19,8 +22,14 @@ export const Game: React.FC = () => {
   const [completedValues, setCompletedValues] = useState<string[]>([]);
   const [moves, setMoves] = useState(0);
 
-  const gameSize = Number(searchParams.get("size"));
-  const game = useMemo(() => generateGame(gameSize), [gameSize]);
+  const gridSize = Number(searchParams.get("size"));
+
+  const mainClassNames = classNames({
+    [styles.main]: true,
+    [styles.main4x4]: gridSize === GridSize["4x4"],
+    [styles.main6x6]: gridSize === GridSize["6x6"],
+  });
+  const game = useMemo(() => generateGame(gridSize), [gridSize]);
 
   const handleNewGameClick = () => navigate(0);
   const handleRestart = () => {
@@ -62,6 +71,12 @@ export const Game: React.FC = () => {
     }
   };
 
+  useEffect(() => {
+    if (gridSize !== GridSize["4x4"] && gridSize !== GridSize["6x6"]) {
+      navigate(Path.Settings);
+    }
+  }, [gridSize, navigate]);
+
   return (
     <GameLayout>
       <header className={styles.header}>
@@ -75,7 +90,7 @@ export const Game: React.FC = () => {
           </Button>
         </div>
       </header>
-      <main className={styles.main}>
+      <main className={mainClassNames}>
         {game.map((value, index) => {
           return (
             <GameButton

@@ -16,8 +16,14 @@
 .main {
   display: grid;
   gap: 20px;
-  grid-template-columns: repeat(4, auto);
-  max-width: 532px;
+
+  &4x4 {
+    grid-template-columns: repeat(4, auto);
+  }
+
+  &6x6 {
+    grid-template-columns: repeat(6, auto);
+  }
 }
 
 .footer {

@@ -18,7 +18,7 @@ export const Button: React.FC<ButtonProps> = ({
   type,
   onClick,
 }) => {
-  const buttonClassnames = classNames(
+  const buttonClassNames = classNames(
     {
       [styles.button]: true,
       [styles.buttonDisabled]: disabled,
@@ -29,7 +29,7 @@ export const Button: React.FC<ButtonProps> = ({
   );
 
   return (
-    <button className={buttonClassnames} type="button" onClick={onClick}>
+    <button className={buttonClassNames} type="button" onClick={onClick}>
       {children}
     </button>
   );
