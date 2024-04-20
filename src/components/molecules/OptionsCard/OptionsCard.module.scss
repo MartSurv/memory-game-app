@@ -1,12 +1,13 @@
-@import "../../../assets/styles/variables.scss";
+@import "../../../assets/styles/variables";
 
 .card {
+  background-color: $color-octonary;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
   gap: 32px;
-  background-color: $color-octonary;
   padding: 56px;
+  width: 100%;
 }
 
 .cardRow {

@@ -6,3 +6,8 @@ export enum ButtonType {
 export enum MenuButtonSize {
   Big,
 }
+
+export enum TitleStyle {
+  Light,
+  Dark,
+}

@@ -1,4 +1,4 @@
-@import "../../../assets/styles/variables.scss";
+@import "../../../assets/styles/variables";
 
 .menuButton {
   $this: &;
@@ -8,8 +8,13 @@
   font-size: 26px;
   padding: 10px;
 
+  &:hover {
+    background-color: $color-septenary;
+    color: $color-octonary;
+  }
+
   &Active {
-    background-color: $color-tertiary;
+    background-color: $color-tertiary !important;
   }
 
   &Big {
@@ -18,7 +23,7 @@
     padding: 16px;
 
     &:hover {
-      background-color: rgba($color: $color-primary, $alpha: 0.8);
+      background-color: rgba($color: $color-primary, $alpha: 80%);
     }
   }
 }

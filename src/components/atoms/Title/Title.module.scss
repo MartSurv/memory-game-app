@@ -1,0 +1,16 @@
+@import "../../../assets/styles/variables";
+
+.title {
+  $this: &;
+
+  font-size: $font-size-title;
+  font-weight: bold;
+
+  &Light {
+    color: $color-octonary;
+  }
+
+  &Dark {
+    color: $color-quaternary;
+  }
+}

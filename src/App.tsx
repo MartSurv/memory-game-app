@@ -1,7 +1,7 @@
-import { Home } from "./pages/Home";
+import { Settings } from "./pages/Settings";
 
 const App: React.FC = () => {
-  return <Home />;
+  return <Settings />;
 };
 
 export default App;

@@ -1,0 +1,21 @@
+@import "../../../assets/styles/variables";
+
+.settingsLayout {
+  align-items: center;
+  background-color: $color-quaternary;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+}
+
+.settingsContainer {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 78px;
+  justify-content: center;
+  max-width: 650px;
+  width: 100%;
+}
