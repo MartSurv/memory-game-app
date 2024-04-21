@@ -7,20 +7,23 @@ import { Button } from "../../components/atoms/Button";
 import { Tab } from "../../components/atoms/Tab";
 import { Title } from "../../components/atoms/Title";
 import { GameButton } from "../../components/molecules/GameButton";
+import { GameOverModal } from "../../components/organisms/GameOverModal";
 import { Path } from "../../router";
 import { GameLayout } from "../../templates/GameLayout";
 import { ButtonType, TitleStyle } from "../../types/components";
 import { GridSize } from "../../types/settings";
-import { generateGame } from "../../utils/game";
+import { formatTime, generateGame } from "../../utils/game";
 
 export const Game: React.FC = () => {
   const navigate = useNavigate();
   const completedTimeoutRef = useRef<NodeJS.Timeout>();
   const failedimeoutRef = useRef<NodeJS.Timeout>();
+  const timeRef = useRef<NodeJS.Timeout>();
   const [searchParams] = useSearchParams();
   const [selectedValues, setSelectedValues] = useState<string[]>([]);
   const [completedValues, setCompletedValues] = useState<string[]>([]);
   const [moves, setMoves] = useState(0);
+  const [seconds, setSeconds] = useState(0);
 
   const gridSize = Number(searchParams.get("size"));
 
@@ -30,12 +33,18 @@ export const Game: React.FC = () => {
     [styles.main6x6]: gridSize === GridSize["6x6"],
   });
   const game = useMemo(() => generateGame(gridSize), [gridSize]);
+  const isGameOver = useMemo(
+    () => completedValues.length === game.length,
+    [completedValues.length, game.length]
+  );
 
-  const handleNewGameClick = () => navigate(0);
-  const handleRestart = () => {
+  const handleNewGameClick = () => navigate(Path.Settings);
+
+  const handleRestartClick = () => {
     setSelectedValues([]);
     setCompletedValues([]);
     setMoves(0);
+    setSeconds(0);
   };
 
   const gameButtonSelected = (value: string) => {
@@ -72,17 +81,31 @@ export const Game: React.FC = () => {
   };
 
   useEffect(() => {
+    timeRef.current = setInterval(() => {
+      setSeconds((seconds) => seconds + 1);
+    }, 1000);
+
+    return () => clearInterval(timeRef.current);
+  }, []);
+
+  useEffect(() => {
     if (gridSize !== GridSize["4x4"] && gridSize !== GridSize["6x6"]) {
       navigate(Path.Settings);
     }
   }, [gridSize, navigate]);
+
+  useEffect(() => {
+    if (isGameOver) {
+      clearInterval(timeRef.current);
+    }
+  }, [isGameOver]);
 
   return (
     <GameLayout>
       <header className={styles.header}>
         <Title text="memory" style={TitleStyle.Dark} />
         <div className={styles.headerActions}>
-          <Button type={ButtonType.Primary} onClick={handleRestart}>
+          <Button type={ButtonType.Primary} onClick={handleRestartClick}>
             Restart
           </Button>
           <Button type={ButtonType.Secondary} onClick={handleNewGameClick}>
@@ -104,9 +127,19 @@ export const Game: React.FC = () => {
         })}
       </main>
       <footer className={styles.footer}>
-        <Tab text="Time" number="0:00" />
-        <Tab text="Moves" number={moves.toString()} />
+        <Tab left="Time" right={formatTime(seconds)} />
+        <Tab left="Moves" right={moves.toString()} />
       </footer>
+      <GameOverModal
+        title="You did it!"
+        subtitle="Game over! Here's how you got on…"
+        visible={isGameOver}
+        onNewGameButtonClick={handleNewGameClick}
+        onRestartButtonClick={handleRestartClick}
+      >
+        <Tab left="Time Elapsed" right={formatTime(seconds)} />
+        <Tab left="Moves Taken" right={`${moves.toString()} Moves`} />
+      </GameOverModal>
     </GameLayout>
   );
 };

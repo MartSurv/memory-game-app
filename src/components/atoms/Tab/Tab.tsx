@@ -1,15 +1,15 @@
 import styles from "./Tab.module.scss";
 
 type TabProps = {
-  text?: string;
-  number?: string;
+  left?: React.ReactNode;
+  right?: React.ReactNode;
 };
 
-export const Tab: React.FC<TabProps> = ({ number, text }) => {
+export const Tab: React.FC<TabProps> = ({ left, right }) => {
   return (
     <div className={styles.tab}>
-      <span className={styles.text}>{text}</span>
-      <span className={styles.number}>{number}</span>
+      <span className={styles.text}>{left}</span>
+      <span className={styles.number}>{right}</span>
     </div>
   );
 };

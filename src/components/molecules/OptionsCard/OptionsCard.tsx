@@ -31,8 +31,9 @@ export const OptionsCard: React.FC<OptionsCardProps> = ({
             Numbers
           </MenuButton>
           <MenuButton
-            active={theme === Theme.Icons}
-            onClick={() => onThemeSelect(Theme.Icons)}
+            // active={theme === Theme.Icons}
+            disabled
+            // onClick={() => onThemeSelect(Theme.Icons)}
           >
             Icons
           </MenuButton>
