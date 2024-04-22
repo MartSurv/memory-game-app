@@ -8,7 +8,7 @@
   display: flex;
   font-weight: $font-weight-bold;
   justify-content: space-between;
-  padding: 15px 20px;
+  padding: 15px $spacing-teritary;
   width: 100%;
 
   @include for-mobile {

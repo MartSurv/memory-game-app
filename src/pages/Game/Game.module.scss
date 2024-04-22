@@ -6,7 +6,7 @@
 
   align-items: center;
   display: flex;
-  gap: 20px;
+  gap: $spacing-teritary;
   justify-content: space-between;
   width: 100%;
 
@@ -21,7 +21,7 @@
   display: grid;
 
   &4x4 {
-    gap: 20px;
+    gap: $spacing-teritary;
     grid-template-columns: repeat(4, 1fr);
     height: 532px;
     width: 532px;

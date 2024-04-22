@@ -1,15 +1,16 @@
 @import "../../assets/styles/media";
+@import "../../assets/styles/variables";
 
 .gameLayout {
   align-items: center;
   display: flex;
   justify-content: center;
   min-height: 100vh;
-  padding: 40px;
+  padding: $spacing-secondary;
   position: relative;
 
   @include for-mobile {
-    padding: 20px;
+    padding: $spacing-teritary;
   }
 }
 
