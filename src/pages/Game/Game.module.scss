@@ -1,8 +1,12 @@
+@import "../../assets/styles/media";
+@import "../../assets/styles/variables";
+
 .header {
   $this: &;
 
   align-items: center;
   display: flex;
+  gap: 20px;
   justify-content: space-between;
   width: 100%;
 
@@ -15,14 +19,31 @@
 
 .main {
   display: grid;
-  gap: 20px;
 
   &4x4 {
-    grid-template-columns: repeat(4, auto);
+    gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+    height: 532px;
+    width: 532px;
+
+    @include for-mobile {
+      gap: 12px;
+      max-height: 327px;
+      max-width: 327px;
+    }
   }
 
   &6x6 {
-    grid-template-columns: repeat(6, auto);
+    gap: 16px;
+    grid-template-columns: repeat(6, 1fr);
+    height: 572px;
+    width: 572px;
+
+    @include for-mobile {
+      gap: 9px;
+      max-height: 326px;
+      max-width: 326px;
+    }
   }
 }
 

@@ -11,8 +11,3 @@ export enum TitleStyle {
   Light,
   Dark,
 }
-
-export enum VersionStyle {
-  Light,
-  Dark,
-}

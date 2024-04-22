@@ -8,7 +8,8 @@ const shuffleArray = (array: string[]) => {
 
 export const generateGame = (size: number) => {
   const numbers: string[] = [];
-  for (let i = 1; i <= size * 2; i++) {
+
+  for (let i = 1; i <= (size * size) / 2; i++) {
     numbers.push(`${i}a`);
     numbers.push(`${i}b`);
   }

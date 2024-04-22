@@ -1,3 +1,4 @@
+@import "../../../assets/styles/media";
 @import "../../../assets/styles/variables";
 
 .title {
@@ -12,5 +13,9 @@
 
   &Dark {
     color: $color-quaternary;
+  }
+
+  @include for-tablet {
+    font-size: 40px;
   }
 }

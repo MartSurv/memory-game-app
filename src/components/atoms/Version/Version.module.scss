@@ -1,15 +1,3 @@
 .version {
-  bottom: 10px;
-  color: rgba($color: #000, $alpha: 25%);
-  mix-blend-mode: difference;
-  position: absolute;
-  right: 10px;
-
-  &Light {
-    color: rgba($color: #fff, $alpha: 25%);
-  }
-
-  &Dark {
-    color: rgba($color: #000, $alpha: 25%);
-  }
+  color: rgba($color: #fff, $alpha: 25%);
 }

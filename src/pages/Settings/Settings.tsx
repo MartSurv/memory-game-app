@@ -5,7 +5,6 @@ import { Title } from "../../components/atoms/Title";
 import { Version } from "../../components/atoms/Version";
 import { OptionsCard } from "../../components/molecules/OptionsCard";
 import { SettingsLayout } from "../../templates/SettingsLayout";
-import { VersionStyle } from "../../types/components";
 import { GridSize, Theme } from "../../types/settings";
 
 export const Settings: React.FC = () => {
@@ -24,6 +23,7 @@ export const Settings: React.FC = () => {
   return (
     <SettingsLayout>
       <Title text="memory" />
+
       <OptionsCard
         gridSize={gridSize}
         theme={theme}
@@ -31,8 +31,7 @@ export const Settings: React.FC = () => {
         onThemeSelect={handleThemeSelect}
         onStartGame={() => navigate(`/game?size=${gridSize}`)}
       />
-
-      <Version style={VersionStyle.Light} />
+      <Version />
     </SettingsLayout>
   );
 };

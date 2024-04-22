@@ -1,3 +1,4 @@
+@import "../../../assets/styles/media";
 @import "../../../assets/styles/variables";
 
 .tab {
@@ -9,14 +10,26 @@
   justify-content: space-between;
   padding: 15px 20px;
   width: 100%;
+
+  @include for-mobile {
+    flex-direction: column;
+  }
 }
 
 .text {
   color: $color-senary;
   font-size: $font-size-body;
+
+  @include for-mobile {
+    font-size: 15px;
+  }
 }
 
 .number {
   color: $color-tertiary;
   font-size: $font-size-subtitle;
+
+  @include for-mobile {
+    font-size: 24px;
+  }
 }

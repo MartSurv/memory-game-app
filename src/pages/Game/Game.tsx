@@ -120,6 +120,7 @@ export const Game: React.FC = () => {
               key={`${value}-${index}`}
               completed={completedValues.includes(value)}
               selected={gameButtonSelected(value)}
+              type={gridSize}
               value={value}
               onClick={handleValueSelect}
             />
