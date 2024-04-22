@@ -26,7 +26,7 @@ Users should be able to:
 
 ### Screenshots
 
-![smartmockups_lvb8rphn](https://github.com/MartSurv/memory-game-app/assets/47948087/ac5ca1ed-7939-4d8d-9eb8-951b76a02790)
+![smartmockups_lvb9hxej](https://github.com/MartSurv/memory-game-app/assets/47948087/51d232ec-f236-4839-8e58-4ee6d07d2378)
 
 ### Links
 
