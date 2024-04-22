@@ -8,6 +8,7 @@ import { Tab } from "../../components/atoms/Tab";
 import { Title } from "../../components/atoms/Title";
 import { GameButton } from "../../components/molecules/GameButton";
 import { GameOverModal } from "../../components/organisms/GameOverModal";
+import { MenuModal } from "../../components/organisms/MenuModal";
 import { Path } from "../../router";
 import { GameLayout } from "../../templates/GameLayout";
 import { ButtonType, TitleStyle } from "../../types/components";
@@ -16,6 +17,7 @@ import { formatTime, generateGame } from "../../utils/game";
 
 export const Game: React.FC = () => {
   const navigate = useNavigate();
+  const isMobile = window.innerWidth <= 425;
   const completedTimeoutRef = useRef<NodeJS.Timeout>();
   const failedimeoutRef = useRef<NodeJS.Timeout>();
   const timeRef = useRef<NodeJS.Timeout>();
@@ -24,6 +26,7 @@ export const Game: React.FC = () => {
   const [completedValues, setCompletedValues] = useState<string[]>([]);
   const [moves, setMoves] = useState(0);
   const [seconds, setSeconds] = useState(0);
+  const [menuModalVisible, setMenuModalVisible] = useState(false);
 
   const gridSize = Number(searchParams.get("size"));
 
@@ -80,6 +83,14 @@ export const Game: React.FC = () => {
     }
   };
 
+  const handleMenuClick = () => {
+    setMenuModalVisible(true);
+  };
+
+  const handleGameResumeButtonClick = () => {
+    setMenuModalVisible(false);
+  };
+
   useEffect(() => {
     timeRef.current = setInterval(() => {
       setSeconds((seconds) => seconds + 1);
@@ -105,12 +116,20 @@ export const Game: React.FC = () => {
       <header className={styles.header}>
         <Title text="memory" style={TitleStyle.Dark} />
         <div className={styles.headerActions}>
-          <Button type={ButtonType.Primary} onClick={handleRestartClick}>
-            Restart
-          </Button>
-          <Button type={ButtonType.Secondary} onClick={handleNewGameClick}>
-            New Game
-          </Button>
+          {isMobile ? (
+            <Button type={ButtonType.Primary} onClick={handleMenuClick}>
+              Menu
+            </Button>
+          ) : (
+            <>
+              <Button type={ButtonType.Primary} onClick={handleRestartClick}>
+                Restart
+              </Button>
+              <Button type={ButtonType.Secondary} onClick={handleNewGameClick}>
+                New Game
+              </Button>
+            </>
+          )}
         </div>
       </header>
       <main className={mainClassNames}>
@@ -141,6 +160,12 @@ export const Game: React.FC = () => {
         <Tab left="Time Elapsed" right={formatTime(seconds)} />
         <Tab left="Moves Taken" right={`${moves.toString()} Moves`} />
       </GameOverModal>
+      <MenuModal
+        visible={menuModalVisible}
+        onNewGameButtonClick={handleNewGameClick}
+        onRestartButtonClick={handleRestartClick}
+        onResumeButtonClick={handleGameResumeButtonClick}
+      />
     </GameLayout>
   );
 };

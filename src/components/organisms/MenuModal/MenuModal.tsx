@@ -1,38 +1,32 @@
-import styles from "./GameOverModal.module.scss";
+import styles from "./MenuModal.module.scss";
 import { ButtonType } from "../../../types/components";
 import { Button } from "../../atoms/Button";
 import { Modal } from "../../molecules/Modal";
 
-type GameOverModalProps = {
-  children?: React.ReactNode;
-  title?: string;
-  subtitle?: string;
+type MenuModalProps = {
   visible?: boolean;
   onNewGameButtonClick?: () => void;
   onRestartButtonClick?: () => void;
+  onResumeButtonClick?: () => void;
 };
 
-export const GameOverModal: React.FC<GameOverModalProps> = ({
-  children,
-  title,
-  subtitle,
+export const MenuModal: React.FC<MenuModalProps> = ({
   visible,
   onNewGameButtonClick,
   onRestartButtonClick,
+  onResumeButtonClick,
 }) => {
-  if (!visible) {
-    return null;
-  }
-
   return (
-    <Modal title={title} subtitle={subtitle} visible={visible}>
-      <div className={styles.content}>{children}</div>
+    <Modal visible={visible}>
       <div className={styles.actions}>
         <Button type={ButtonType.Primary} onClick={onRestartButtonClick}>
           Restart
         </Button>
         <Button type={ButtonType.Secondary} onClick={onNewGameButtonClick}>
           New Game
+        </Button>
+        <Button type={ButtonType.Secondary} onClick={onResumeButtonClick}>
+          Resume Game
         </Button>
       </div>
     </Modal>

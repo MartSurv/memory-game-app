@@ -1,3 +1,4 @@
+@import "../../../assets/styles/media";
 @import "../../../assets/styles/variables";
 
 .menuButton {
@@ -25,5 +26,9 @@
     &:hover {
       background-color: rgba($color: $color-primary, $alpha: 80%);
     }
+  }
+
+  @include for-mobile {
+    font-size: 16px;
   }
 }
