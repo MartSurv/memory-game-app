@@ -1,3 +1,5 @@
+@import "../../../assets/styles/media";
+
 .content {
   display: flex;
   flex-direction: column;
@@ -9,4 +11,8 @@
   display: flex;
   gap: 14px;
   width: 100%;
+
+  @include for-mobile {
+    flex-direction: column;
+  }
 }

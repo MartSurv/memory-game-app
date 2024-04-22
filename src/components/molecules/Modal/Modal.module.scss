@@ -26,6 +26,7 @@
   width: 100%;
 
   @include for-mobile {
+    gap: 24px;
     padding: 24px;
   }
 }
@@ -35,15 +36,27 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+
+  @include for-mobile {
+    gap: 9px;
+  }
 }
 
 .title {
   color: $color-quaternary;
   font-size: $font-size-title;
   font-weight: bold;
+
+  @include for-mobile {
+    font-size: 24px;
+  }
 }
 
 .subtitle {
   color: $color-senary;
   font-size: $font-size-body;
+
+  @include for-mobile {
+    font-size: 14px;
+  }
 }

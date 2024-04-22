@@ -9,6 +9,10 @@
   font-size: 26px;
   padding: 10px;
 
+  @include for-mobile {
+    font-size: 16px;
+  }
+
   &:hover {
     background-color: $color-septenary;
     color: $color-octonary;
@@ -23,12 +27,12 @@
     font-size: 32px;
     padding: 16px;
 
+    @include for-mobile {
+      font-size: 18px;
+    }
+
     &:hover {
       background-color: rgba($color: $color-primary, $alpha: 80%);
     }
-  }
-
-  @include for-mobile {
-    font-size: 16px;
   }
 }

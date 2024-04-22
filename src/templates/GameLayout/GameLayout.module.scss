@@ -21,4 +21,8 @@
   justify-content: center;
   max-width: 1110px;
   width: 100%;
+
+  @include for-mobile {
+    gap: 80px;
+  }
 }
