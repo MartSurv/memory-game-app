@@ -1,30 +1,42 @@
-# React + TypeScript + Vite
+# Frontend Mentor - Memory game solution
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a solution to the [Memory game challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/memory-game-vse4WFPvM). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-Currently, two official plugins are available:
+Note: v1.0.0 doesn't include multiplayer mode and icons as memory tiles (coming soon...)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Table of contents
 
-## Expanding the ESLint configuration
+- [Overview](#overview)
+- [The challenge](#the-challenge)
+- [Screenshots](#screenshots)
+- [Links](#links)
+- [Built with](#built-with)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Overview
 
-- Configure the top-level `parserOptions` property like this:
+### The challenge
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+Users should be able to:
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- View the optimal layout for the game depending on their device's screen size
+- See hover states for all interactive elements on the page
+- Play the Memory game either solo or multiplayer (up to 4 players)
+- Set the theme to use numbers or icons within the tiles
+- Choose to play on either a 6x6 or 4x4 grid
+
+### Screenshots
+
+![smartmockups_lvb8rphn](https://github.com/MartSurv/memory-game-app/assets/47948087/ac5ca1ed-7939-4d8d-9eb8-951b76a02790)
+
+### Links
+
+- Live Site URL: [Memory Game](https://surv-memory-game.netlify.app/)
+
+### Built with
+
+- Semantic HTML5 markup
+- CSS/SCSS
+- JavaScript/TypeScript
+- [React](https://reactjs.org/)
+- [Yarn](https://yarnpkg.com/)
+- [Vite](https://vitejs.dev/)
